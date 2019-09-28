@@ -10,35 +10,34 @@
         </div>
     </v-container>
     <v-container v-else grid-list-xl>
-        <v-layout wrap>
-            <v-card v-for="(item, index) in wholeResponse" :key="index" >
-                <v-list-item row>
-                    <div>
-                        <h2>{{item.symbol}}</h2>
-                        <p>{{item.shortName}}</p>
-                    </div>
-                    <div>
-                        <h3>{{item.regularMarketPrice.fmt}}</h3>
-                    </div>
-                    <div>
-                        <p>{{item.regularMarketChange.fmt}}</p>
-                        <p>{{item.regularMarketChangePercent.fmt}}</p>
-                    </div>
-                </v-list-item>
-            </v-card>
-        </v-layout>
+        <v-data-table
+            :headers="headers"
+            :items="exchanges"
+            :sort-by="['calories', 'fat']"
+            :sort-desc="[false, true]"
+            multi-sort
+            class="elevation-1"
+        ></v-data-table>
     </v-container>
 </template>
 
 <script>
     import axios from 'axios'
     import config from '../config.js'
+    import sampleData from '@/assets/sampleSummaryData.json'
 
     export default {
         data () {
             return {
-                wholeResponse: [],
-                loading: true
+                headers: [
+                    { text: 'Symbol', align: 'left', sortable: false, value: 'symbol', },
+                    { text: 'Name', value: 'shortName' },
+                    { text: 'Close', value: 'regularMarketPreviousClose.fmt' },
+                    { text: 'Change', value: 'regularMarketChange.fmt' },
+                    { text: 'Change %', value: 'regularMarketChangePercent.fmt' },
+                ],
+                exchanges: sampleData.marketSummaryResponse.result,
+                loading: false
             }
         },
         mounted () {
