@@ -10,9 +10,21 @@
         </div>
     </v-container>
     <v-container v-else grid-list-xl>
+        <v-container fluid>
+            <v-layout row wrap>
+                <v-flex xs12 class="text-xs-center" mt-5>
+                    <h1>Market Summary</h1>
+                </v-flex>
+                <v-flex xs12 class="text-xs-center" mt-3>
+                    <p>
+                        The Market Summary page contains a number of tables summarizing major areas of the market, including major markets and indexes, sectors and industries, international markets, bonds, commodities, currencies and market breadth measures (such as Bullish Percent Indices).
+                    </p>
+                </v-flex>
+            </v-layout>
+        </v-container>    
         <v-card>    
-            <v-card-title>
-                Major Exchanges
+            <v-card-title class="blue darken-2" dark>
+                <v-toolbar-title>Major Exchange</v-toolbar-title>
                 <div class="flex-grow-1"></div>
                 <v-text-field
                     v-model="search"
@@ -28,6 +40,7 @@
                 :sort-by="['calories', 'fat']"
                 :sort-desc="[false, true]"
                 multi-sort
+                dark
                 class="elevation-1"
             ></v-data-table>
         </v-card>
