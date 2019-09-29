@@ -10,14 +10,27 @@
         </div>
     </v-container>
     <v-container v-else grid-list-xl>
-        <v-data-table
-            :headers="headers"
-            :items="exchanges"
-            :sort-by="['calories', 'fat']"
-            :sort-desc="[false, true]"
-            multi-sort
-            class="elevation-1"
-        ></v-data-table>
+        <v-card>    
+            <v-card-title>
+                Major Exchanges
+                <div class="flex-grow-1"></div>
+                <v-text-field
+                    v-model="search"
+                    append-icon="search"
+                    label="Search"
+                    single-line
+                    hide-details
+                ></v-text-field>
+            </v-card-title>
+            <v-data-table
+                :headers="headers"
+                :items="exchanges"
+                :sort-by="['calories', 'fat']"
+                :sort-desc="[false, true]"
+                multi-sort
+                class="elevation-1"
+            ></v-data-table>
+        </v-card>
     </v-container>
 </template>
 
