@@ -23,7 +23,7 @@
             </v-layout>
         </v-container>    
         <v-card>    
-            <v-card-title class="blue darken-2" dark>
+            <v-card-title class="pink lighten-5" dark>
                 <v-toolbar-title>Major Exchange</v-toolbar-title>
                 <div class="flex-grow-1"></div>
                 <v-text-field
@@ -63,31 +63,33 @@
                     { text: 'Change %', value: 'regularMarketChangePercent.fmt' },
                 ],
                 exchanges: sampleData.marketSummaryResponse.result,
+                // exchanges: this.wholeResponse,
                 loading: false
+                // loading: true
             }
         },
         mounted () {
-            // axios({
-            //     "method":"GET",
-            //     "url":"https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-summary",
-            //     "headers":{
-            //         "content-type":"application/octet-stream",
-            //         "x-rapidapi-host":"apidojo-yahoo-finance-v1.p.rapidapi.com",
-            //         "x-rapidapi-key": config.RAPID_API_KEY
-            //     },
-            //     "params":{
-            //         "region":"US",
-            //         "lang":"en"
-            //     }
-            // })
-            // .then((response) => {
-            //     console.log(response)
-            //     this.wholeResponse = response.data.marketSummaryResponse.result
-            //     this.loading = false
-            // })
-            // .catch((error) => {
-            //     console.log(error)
-            // })
+        //     axios({
+        //         "method":"GET",
+        //         "url":"https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-summary",
+        //         "headers":{
+        //             "content-type":"application/octet-stream",
+        //             "x-rapidapi-host":"apidojo-yahoo-finance-v1.p.rapidapi.com",
+        //             "x-rapidapi-key": config.RAPID_API_KEY
+        //         },
+        //         "params":{
+        //             "region":"US",
+        //             "lang":"en"
+        //         }
+        //     })
+        //     .then((response) => {
+        //         console.log(response)
+        //         this.exchanges = response.data.marketSummaryResponse.result
+        //         this.loading = false
+        //     })
+        //     .catch((error) => {
+        //         console.log(error)
+        //     })
         },
     }
 </script>

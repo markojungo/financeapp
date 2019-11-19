@@ -40,7 +40,7 @@
         <v-list-item
             v-for="item in items"
             :key="item.title"
-          >
+        >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
